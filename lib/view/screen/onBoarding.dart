@@ -1,5 +1,8 @@
 import 'package:ecommerce/core/const/color.dart';
 import 'package:ecommerce/data/datasource/static/static.dart';
+import 'package:ecommerce/view/widget/onBoarding/customButton.dart';
+import 'package:ecommerce/view/widget/onBoarding/dotontroller.dart';
+import 'package:ecommerce/view/widget/onBoarding/slidder.dart';
 import 'package:flutter/material.dart';
 
 class onBoarding extends StatelessWidget {
@@ -9,29 +12,25 @@ class onBoarding extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-      child: PageView.builder(
-          itemCount: onBoardingList.length,
-          itemBuilder: (context, i) {
-            return Column(
+            child: Column(
+      children: [
+        Expanded(
+          flex: 3,
+          child: slidder()
+        ),
+        Expanded(
+            flex: 1,
+            child: Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(top:30),
-                  child: Text(
-                    onBoardingList[i].title!,
-                    style: TextStyle(fontSize:25,fontWeight: FontWeight.bold),
-                  ),
-                ),
+                dotcontroller(),
+                SizedBox(height: 30,),
+                Button(text:"Continue",color:colorApp.primary,textcolor:Colors.white),
                 SizedBox(height: 10,),
-                Image.network(onBoardingList[i].img!,height:300,width: double.infinity,),
-                SizedBox(height: 20,),
-                Container(
-                  width: double.infinity,
-                  alignment: Alignment.center,
-                  child: Text(onBoardingList[i].body!,style: TextStyle(fontSize: 15,height:2,color: colorApp.grey),textAlign: TextAlign.center,),
-                ),
+                Button(text:"Skip",color:Colors.white,textcolor:Colors.black),
+
               ],
-            );
-          }),
-    ));
+            ))
+      ],
+    )));
   }
 }
