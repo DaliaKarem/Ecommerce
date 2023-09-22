@@ -1,12 +1,18 @@
+import 'package:ecommerce/controller/onboadingcontroller.dart';
 import 'package:ecommerce/core/const/color.dart';
 import 'package:ecommerce/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
-class slidder extends StatelessWidget {
+import 'package:get/get.dart';
+class slidder extends GetView<onBoardingControllerImp> {
   const slidder({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
+      onPageChanged:(val){
+        print("page is $val");
+        controller.dotChange(val);
+      } ,
         itemCount: onBoardingList.length,
         itemBuilder: (context, i) {
           return Column(
