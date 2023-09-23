@@ -22,14 +22,13 @@ class slidder extends GetView<onBoardingControllerImp> {
                 padding: EdgeInsets.only(top: 30),
                 child: Text(
                   onBoardingList[i].title!,
-                  style: TextStyle(
-                      fontSize: 25, fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.headline1,
                 ),
               ),
               SizedBox(
                 height: 10,
               ),
-              Image.network(
+              Image.asset(
                 onBoardingList[i].img!,
                 height: 300,
                 width: double.infinity,
@@ -42,8 +41,7 @@ class slidder extends GetView<onBoardingControllerImp> {
                 alignment: Alignment.center,
                 child: Text(
                   onBoardingList[i].body!,
-                  style: TextStyle(
-                      fontSize: 15, height: 2, color: colorApp.grey),
+                  style:Theme.of(context).textTheme.bodyText1,
                   textAlign: TextAlign.center,
                 ),
               ),

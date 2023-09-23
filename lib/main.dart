@@ -1,9 +1,13 @@
+import 'package:ecommerce/core/const/color.dart';
+import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/routes.dart';
 import 'package:ecommerce/view/screen/onBoarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+await initialServies();
   runApp(const MyApp());
 }
 
@@ -17,9 +21,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        textTheme: TextTheme(
+          headline1:  TextStyle(
+              fontSize: 25, fontWeight: FontWeight.bold),
+          bodyText1:TextStyle(
+              fontSize: 15, height: 2, color: colorApp.grey),
+        )
       ),
+
       home: onBoarding(),
       routes: routes
     );
