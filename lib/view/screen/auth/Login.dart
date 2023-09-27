@@ -1,6 +1,7 @@
-import 'package:ecommerce/controller/LoginController.dart';
+import 'package:ecommerce/controller/Auth/LoginController.dart';
 import 'package:ecommerce/core/const/color.dart';
 import 'package:ecommerce/view/widget/auth/customButtonAuth.dart';
+import 'package:ecommerce/view/widget/auth/customForgetPassAuth.dart';
 import 'package:ecommerce/view/widget/auth/customTitle.dart';
 import 'package:ecommerce/view/widget/auth/customtextbody.dart';
 import 'package:ecommerce/view/widget/auth/customtextfield.dart';
@@ -45,8 +46,7 @@ class Login extends StatelessWidget {
                 icons: Icon(Icons.visibility),
                 icon2: Icon(Icons.visibility_off),control: controllerImp.password ,),
               SizedBox(height: 15,),
-              Text("Foget Password", textAlign: TextAlign.end,
-                style: TextStyle(color: colorApp.grey),),
+              customForgetPassAuth(),
               customButtonAuth(text: 'Login', onPressed: () {},),
               SizedBox(height: 30,),
               textSignUporLogin(
