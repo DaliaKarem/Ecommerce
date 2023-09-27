@@ -9,18 +9,21 @@ class customTextAuth extends StatelessWidget {
       required this.hinttext,
       required this.icons,
        required this.icon2,
-      required this.control
+      required this.control,
+        required this.validator
       })
       : super(key: key);
   String text, hinttext;
    Widget icons,icon2;
   TextEditingController? control;
   bool isPress=false;
+  String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<LoginControllerImp>(
         builder: (controller)=>
             Obx(() =>TextFormField(
+              validator: validator,
               obscureText: (text=="Password" && !controller.Press.value)?true:false,
               enableSuggestions:(text=="Password" && controller.Press==false)? true:false,
               autofocus: (text=="Password"&& controller.Press==false)?false:true,

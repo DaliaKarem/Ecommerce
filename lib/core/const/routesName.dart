@@ -10,7 +10,6 @@ class routeApp{
   static const String verifySignCode="/verifySignCode";
   static const String resetPass="/resetPass";
   static const String SuccessResetPass="/SuccessResetPass";
-  static const String checkEmail="/checkEmail";
 
 
 }

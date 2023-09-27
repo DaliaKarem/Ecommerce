@@ -13,6 +13,7 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController password;
   late TextEditingController userName;
   late TextEditingController phone;
+  GlobalKey<FormState>formstate=GlobalKey<FormState>();
   @override
   void onInit() {
     // TODO: implement onInit
@@ -34,7 +35,15 @@ class SignUpControllerImp extends SignUpController {
 
   @override
   SignUp() {
-    Get.offNamed(routeApp.checkEmail);
+    var form=formstate.currentState;
+    if(form!.validate()){
+      print("valid Sign");
+      Get.offNamed(routeApp.verifySignCode);
+    }
+    else{
+      print("Error in sign");
+    }
+
   }
 
   @override

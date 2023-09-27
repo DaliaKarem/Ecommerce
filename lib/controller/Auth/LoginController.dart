@@ -11,7 +11,7 @@ class LoginControllerImp extends LoginController{
   var Press=false.obs;
  late TextEditingController email;
   late TextEditingController password;
-
+  GlobalKey<FormState>formstate=GlobalKey<FormState>();
   @override
   void onInit() {
     // TODO: implement onInit
@@ -27,7 +27,15 @@ class LoginControllerImp extends LoginController{
 
   @override
   login() {
+var form=formstate.currentState;
+if(form!.validate())
+  {
+    print("Valid");
 
+  }
+else{
+  print("Error");
+}
   }
 
   @override

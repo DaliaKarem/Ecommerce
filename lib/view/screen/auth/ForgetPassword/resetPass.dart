@@ -1,4 +1,5 @@
 import 'package:ecommerce/controller/Auth/resetPassController.dart';
+import 'package:ecommerce/core/functions/ValidatorInput.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/core/const/color.dart';
 import 'package:ecommerce/view/widget/auth/customButtonAuth.dart';
@@ -42,6 +43,9 @@ class resetPass extends StatelessWidget {
                 height: 40,
               ),
               customTextAuth(
+                validator: (val){
+                  return ValidatorInput("email",val! , 8, 15);
+                },
                 text: "Password",
                 hinttext: "Enter Password",
                 icons: Icon(Icons.visibility),
@@ -52,6 +56,9 @@ class resetPass extends StatelessWidget {
                 height: 30,
               ),
               customTextAuth(
+                validator: (val){
+                  return ValidatorInput("pass",val! , 8, 15);
+                },
                 text: "Confirm Password",
                 hinttext: "Re Enter Password",
                 icons: Icon(Icons.visibility),
