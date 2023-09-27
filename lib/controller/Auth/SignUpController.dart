@@ -8,7 +8,7 @@ abstract class SignUpController extends GetxController{
   goToLogin();
 }
 class SignUpControllerImp extends SignUpController {
-  bool Press = false;
+  bool Press = true;
   late TextEditingController email;
   late TextEditingController password;
   late TextEditingController userName;
@@ -45,7 +45,7 @@ class SignUpControllerImp extends SignUpController {
       print("valid Sign");
       Get.offNamed(routeApp.verifySignCode);
       //bec when we go to sign up again after verification data saved
-      Get.delete<SignUpControllerImp>();
+      //Get.delete<SignUpControllerImp>();
     }
     else{
       print("Error in sign");

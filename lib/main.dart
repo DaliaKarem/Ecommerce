@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme:themeData,
       home: onBoarding(),
-      routes: routes
+      getPages: routes,
+      // routes: routes
     );
   }
 }

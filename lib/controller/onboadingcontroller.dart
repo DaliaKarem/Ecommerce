@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/const/routesName.dart';
+import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/static/static.dart';
 import 'package:ecommerce/routes.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ abstract class onBoardingController extends GetxController
 class onBoardingControllerImp extends onBoardingController{
   late PageController pageController;
   int current=0;
+  myServices myservices=Get.find();
   @override
   void onInit() {
    pageController=PageController();
@@ -32,6 +34,7 @@ class onBoardingControllerImp extends onBoardingController{
       {
         print("go to sign up page");
         //current=0;
+        myservices.sharedPreferences.setString("onboarding", "True");
         Get.offAllNamed(routeApp.Login);
       }
     else{
