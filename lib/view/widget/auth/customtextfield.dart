@@ -5,43 +5,43 @@ import 'package:get/get.dart';
 class customTextAuth extends StatelessWidget {
   customTextAuth(
       {Key? key,
+        this.isPress,
+        this.onTapIcon,
       required this.text,
       required this.hinttext,
       required this.icons,
-       required this.icon2,
+        this.icon2,
       required this.control,
         required this.validator, required this.isNum
       })
       : super(key: key);
   String text, hinttext;
-   Widget icons,icon2;
+   Icon? icons,icon2;
   TextEditingController? control;
-  bool isPress=false;
+  bool ?isPress;
   final bool isNum;
+  final void Function()?onTapIcon;
   String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<LoginControllerImp>(
         builder: (controller)=>
-            Obx(() =>TextFormField(
+            TextFormField(
               keyboardType:isNum ?TextInputType.numberWithOptions(decimal: true):TextInputType.text ,
               validator: validator,
-              obscureText: (text=="Password" && !controller.Press.value)?true:false,
-              enableSuggestions:(text=="Password" && controller.Press==false)? true:false,
-              autofocus: (text=="Password"&& controller.Press==false)?false:true,
+              obscureText: isPress==null || isPress==false ?false:true,
+              // enableSuggestions:(text=="Password" && controller.Press==false)? true:false,
+              // autofocus: (text=="Password"&& controller.Press==false)?false:true,
               controller: control,
               decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   label: Text(text),
                   hintText: hinttext,
-                  suffix:InkWell(
-                    child:(controller.Press.value)?icons:icon2 ,
-                    onTap: (){
-                     if(text=="Password") {
-                       controller.Press.value = !controller.Press.value;
-                     };
-                    },
+                  suffixIcon:InkWell(
+                    child:isPress==null || isPress==false ? icons:icon2 ,
+                    onTap: onTapIcon,
+
                   ),
                   // IconButton(
                   //   icon:(controller.Press==true)?icons :icon2,
@@ -51,11 +51,12 @@ class customTextAuth extends StatelessWidget {
                   //     print("////");
                   //   },
                   // ),
+
                   hintStyle: TextStyle(fontSize: 14),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
                   )),
-            )) );
+            ));
 
   }
 }

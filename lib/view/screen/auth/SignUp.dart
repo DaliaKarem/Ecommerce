@@ -48,20 +48,18 @@ class SignUp extends StatelessWidget {
                   ),
                   cstomtextbody(
                       text:
-                      "Sign Up with your Email and Password or Continue with Social Media"),
+                          "Sign Up with your Email and Password or Continue with Social Media"),
                   SizedBox(
                     height: 50,
                   ),
                   customTextAuth(
                     isNum: false,
-
-                    validator: (val){
-                      return ValidatorInput("username",val! , 4, 15);
+                    validator: (val) {
+                      return ValidatorInput("username", val!, 4, 15);
                     },
                     text: "UserName",
                     hinttext: "Enter your Name",
                     icons: Icon(Icons.person),
-                    icon2: Icon(Icons.person),
                     control: controllerImp.userName,
                   ),
                   SizedBox(
@@ -69,14 +67,12 @@ class SignUp extends StatelessWidget {
                   ),
                   customTextAuth(
                     isNum: false,
-
-                    validator: (val){
-                      return ValidatorInput("email",val! , 10, 20);
+                    validator: (val) {
+                      return ValidatorInput("email", val!, 10, 20);
                     },
                     text: "Email",
                     hinttext: "Enter your email",
                     icons: Icon(Icons.email_outlined),
-                    icon2: Icon(Icons.email_outlined),
                     control: controllerImp.email,
                   ),
                   SizedBox(
@@ -84,31 +80,34 @@ class SignUp extends StatelessWidget {
                   ),
                   customTextAuth(
                     isNum: true,
-
-                    validator: (val){
-                      return ValidatorInput("phone",val! , 11, 13);
+                    validator: (val) {
+                      return ValidatorInput("phone", val!, 11, 13);
                     },
                     text: "Phone",
                     hinttext: "Enter your phoneNumber",
                     icons: Icon(Icons.phone),
-                    icon2: Icon(Icons.phone),
                     control: controllerImp.phone,
                   ),
                   SizedBox(
                     height: 20,
                   ),
-                  customTextAuth(
-                    isNum: false,
-
-                    validator: (val){
-                      return ValidatorInput("pass",val! , 8, 15);
-                    },
-                    text: "Password",
-                    hinttext: "Enter Password",
-                    icons: Icon(Icons.visibility),
-                    icon2: Icon(Icons.visibility_off),
-                    control: controllerImp.password,
-                  ),
+                  GetBuilder<SignUpControllerImp>(builder: (Control) {
+                    return customTextAuth(
+                      isNum: false,
+                      isPress: controllerImp.Press,
+                      onTapIcon: () {
+                        controllerImp.showPass();
+                      },
+                      validator: (val) {
+                        return ValidatorInput("pass", val!, 8, 15);
+                      },
+                      text: "Password",
+                      hinttext: "Enter Password",
+                      icons: Icon(Icons.visibility),
+                      icon2: Icon(Icons.visibility_off),
+                      control: controllerImp.password,
+                    );
+                  }),
                   SizedBox(
                     height: 15,
                   ),
@@ -133,8 +132,6 @@ class SignUp extends StatelessWidget {
               ),
             ),
           ),
-
-          )
-    );
+        ));
   }
 }

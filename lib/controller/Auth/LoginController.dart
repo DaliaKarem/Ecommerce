@@ -8,10 +8,15 @@ abstract class LoginController extends GetxController{
   goToForget();
 }
 class LoginControllerImp extends LoginController{
-  var Press=false.obs;
+  var Press=true;
  late TextEditingController email;
   late TextEditingController password;
   GlobalKey<FormState>formstate=GlobalKey<FormState>();
+  showPass()
+  {
+    Press=Press==true?false:true;
+    update();
+  }
   @override
   void onInit() {
     // TODO: implement onInit

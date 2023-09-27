@@ -51,18 +51,24 @@ class Login extends StatelessWidget {
                     text: "Email",
                     hinttext: "Enter your email",
                     icons: Icon(Icons.email_outlined),
-                    icon2: Icon(Icons.email_outlined), control: controllerImp.email,),
+                   control: controllerImp.email,),
                   SizedBox(height: 20,),
-                  customTextAuth(
-                    isNum: false,
+                  GetBuilder<LoginControllerImp>(builder: (Control){
+                    return  customTextAuth(
+                      isNum: false,
+                      isPress: controllerImp.Press,
+                      onTapIcon:(){
+                        controllerImp.showPass();
+                      } ,
+                      validator: (val){
+                        return ValidatorInput("pass",val! , 8, 15);
+                      },
+                      text: "Password",
+                      hinttext: "Enter Password",
+                      icons: Icon(Icons.visibility),
+                      icon2: Icon(Icons.visibility_off),control: controllerImp.password ,);
 
-                    validator: (val){
-                      return ValidatorInput("pass",val! , 8, 15);
-                    },
-                    text: "Password",
-                    hinttext: "Enter Password",
-                    icons: Icon(Icons.visibility),
-                    icon2: Icon(Icons.visibility_off),control: controllerImp.password ,),
+                  }),
                   SizedBox(height: 15,),
                   customForgetPassAuth(),
                   customButtonAuth(text: 'Login', onPressed: () {

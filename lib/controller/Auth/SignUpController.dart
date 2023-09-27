@@ -14,6 +14,11 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController userName;
   late TextEditingController phone;
   GlobalKey<FormState>formstate=GlobalKey<FormState>();
+  showPass()
+  {
+    Press=Press==true?false:true;
+    update();
+  }
   @override
   void onInit() {
     // TODO: implement onInit
