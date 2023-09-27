@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/const/routesName.dart';
 import 'package:ecommerce/view/screen/auth/ForgetPassword//ForgetPass.dart';
+import 'package:ecommerce/view/screen/auth/ForgetPassword/verifySignCode.dart';
 import 'package:ecommerce/view/screen/auth/Login.dart';
 import 'package:ecommerce/view/screen/auth/SignUp.dart';
 import 'package:ecommerce/view/screen/auth/ForgetPassword//SuccessResetPass.dart';
@@ -18,7 +19,7 @@ Map<String ,Widget Function(BuildContext)> routes={
   routeApp.Verification:(context)=>Verification(),
   routeApp.SuccessResetPass:(context)=>SuccessResetPass(),
   routeApp.checkEmail:(context)=>checkEmail(),
-
+  routeApp.verifySignCode:(context)=>verifySignCode(),
 
 
 };

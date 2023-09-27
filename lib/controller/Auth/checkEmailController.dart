@@ -6,7 +6,7 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 abstract class checkEmailController extends GetxController{
 
   checkEmail();
-  goTosuccessSignUp();
+  goToVerifcation();
 }
 class checkEmailControllerImp extends checkEmailController {
   late TextEditingController email;
@@ -31,8 +31,8 @@ class checkEmailControllerImp extends checkEmailController {
   }
 
   @override
-  goTosuccessSignUp() {
-    Get.toNamed(routeApp.SuccessSignUp);
+  goToVerifcation() {
+    Get.toNamed(routeApp.verifySignCode);
   }
 
 }

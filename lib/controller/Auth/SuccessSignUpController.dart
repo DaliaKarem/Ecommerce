@@ -3,17 +3,17 @@ import 'package:ecommerce/view/screen/auth/SignUp.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-abstract class VerificationController extends GetxController{
+abstract class SuccessSignUpController extends GetxController{
 
-  VerificationController();
-  goToresetPass();
+  SuccessSignUpController();
+  goToLogin();
 }
-class VerificationControllerImp extends VerificationController {
-late String verifyCode;
+class SuccessSignUpControllerImp extends SuccessSignUpController {
+  late String verifyCode;
   @override
   void onInit() {
     // TODO: implement onInit
-     super.onInit();
+    super.onInit();
   }
   //
   // @override
@@ -25,13 +25,13 @@ late String verifyCode;
 
 
   @override
-  VerificationController() {
+  SuccessSignUpController() {
 
   }
 
   @override
-  goToresetPass() {
-    Get.toNamed(routeApp.resetPass);
+  goToLogin() {
+    Get.offNamed(routeApp.Login);
   }
 
 }

@@ -1,3 +1,4 @@
+import 'package:ecommerce/core/const/appTheme.dart';
 import 'package:ecommerce/core/const/color.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/routes.dart';
@@ -20,15 +21,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        textTheme: TextTheme(
-          headline1:  TextStyle(
-              fontSize: 25, fontWeight: FontWeight.bold),
-          bodyText1:TextStyle(
-              fontSize: 15, height: 2, color: colorApp.grey),
-        )
-      ),
-
+      theme:themeData,
       home: onBoarding(),
       routes: routes
     );
