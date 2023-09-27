@@ -68,6 +68,12 @@ dependencies:
   responsive_builder: ^0.4.2
   image_pickers: ^2.0.0+2
   flutter_otp_text_field: ^1.1.1
+  flutter_native_splash: ^1.0.0
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: "assets/splash.png"
+  android_gravity: fill
+  ios: true
 
 dev_dependencies:
   flutter_test:

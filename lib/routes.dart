@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/const/routesName.dart';
+import 'package:ecommerce/core/middelware/middelware.dart';
 import 'package:ecommerce/view/screen/auth/ForgetPassword//ForgetPass.dart';
 import 'package:ecommerce/view/screen/auth/ForgetPassword/verifySignCode.dart';
 import 'package:ecommerce/view/screen/auth/Login.dart';
@@ -7,8 +8,9 @@ import 'package:ecommerce/view/screen/auth/ForgetPassword//SuccessResetPass.dart
 import 'package:ecommerce/view/screen/auth/SuccessSignUp.dart';
 import 'package:ecommerce/view/screen/auth/ForgetPassword//Verification.dart';
 import 'package:ecommerce/view/screen/auth/ForgetPassword//resetPass.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:ecommerce/view/screen/onBoarding.dart';
+
 // Map<String ,Widget Function(BuildContext)> routes={
 //   routeApp.Login:(context)=>Login(),
 //   routeApp.SignUp:(context)=>SignUp(),
@@ -23,6 +25,8 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 // };
 
 List<GetPage<dynamic>>?routes=[
+  GetPage(name: "/", page:()=> onBoarding(),middlewares: [middelware()]),
+
   GetPage(name: routeApp.Login, page:()=>Login()),
   GetPage(name: routeApp.SignUp, page:()=>SignUp()),
   GetPage(name: routeApp.SuccessSignUp, page:()=>SuccessSignUp()),
