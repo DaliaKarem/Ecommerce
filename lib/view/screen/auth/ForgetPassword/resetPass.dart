@@ -43,6 +43,7 @@ class resetPass extends StatelessWidget {
                 height: 40,
               ),
               customTextAuth(
+                isNum: false,
                 validator: (val){
                   return ValidatorInput("email",val! , 8, 15);
                 },
@@ -56,6 +57,8 @@ class resetPass extends StatelessWidget {
                 height: 30,
               ),
               customTextAuth(
+                isNum: false,
+
                 validator: (val){
                   return ValidatorInput("pass",val! , 8, 15);
                 },

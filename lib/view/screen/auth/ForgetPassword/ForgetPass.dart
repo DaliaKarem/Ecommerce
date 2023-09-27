@@ -49,7 +49,7 @@ class ForgetPass extends StatelessWidget {
                 hinttext: "Enter your email",
                 icons: Icon(Icons.email_outlined),
                 icon2: Icon(Icons.email_outlined),
-                control: controllerImp.email,
+                control: controllerImp.email, isNum: false,
               ),
               SizedBox(
                 height: 30,

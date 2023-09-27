@@ -39,6 +39,8 @@ class SignUpControllerImp extends SignUpController {
     if(form!.validate()){
       print("valid Sign");
       Get.offNamed(routeApp.verifySignCode);
+      //bec when we go to sign up again after verification data saved
+      Get.delete<SignUpControllerImp>();
     }
     else{
       print("Error in sign");

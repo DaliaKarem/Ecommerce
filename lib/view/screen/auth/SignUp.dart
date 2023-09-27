@@ -17,6 +17,9 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SignUpControllerImp controllerImp = Get.put(SignUpControllerImp());
+    //SignUpControllerImp controllerImp2 = Get.lazyPut(()=>SignUpControllerImp(),fenix: true );
+    //    GetInstance().lazyPut<S>(builder, tag: tag, fenix: fenix);
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: colorApp.background,
@@ -47,6 +50,8 @@ class SignUp extends StatelessWidget {
                   height: 50,
                 ),
                 customTextAuth(
+                  isNum: false,
+
                   validator: (val){
                     return ValidatorInput("username",val! , 4, 15);
                   },
@@ -60,6 +65,8 @@ class SignUp extends StatelessWidget {
                   height: 20,
                 ),
                 customTextAuth(
+                  isNum: false,
+
                   validator: (val){
                     return ValidatorInput("email",val! , 10, 20);
                   },
@@ -73,6 +80,8 @@ class SignUp extends StatelessWidget {
                   height: 20,
                 ),
                 customTextAuth(
+                  isNum: true,
+
                   validator: (val){
                     return ValidatorInput("phone",val! , 11, 13);
                   },
@@ -86,6 +95,8 @@ class SignUp extends StatelessWidget {
                   height: 20,
                 ),
                 customTextAuth(
+                  isNum: false,
+
                   validator: (val){
                     return ValidatorInput("pass",val! , 8, 15);
                   },

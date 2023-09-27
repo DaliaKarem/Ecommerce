@@ -40,7 +40,7 @@ else{
 
   @override
   goToSignUp() {
-    Get.toNamed(routeApp.SignUp);
+    Get.offNamed(routeApp.SignUp);
   }
 
   @override

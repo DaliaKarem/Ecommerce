@@ -10,19 +10,21 @@ class customTextAuth extends StatelessWidget {
       required this.icons,
        required this.icon2,
       required this.control,
-        required this.validator
+        required this.validator, required this.isNum
       })
       : super(key: key);
   String text, hinttext;
    Widget icons,icon2;
   TextEditingController? control;
   bool isPress=false;
+  final bool isNum;
   String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<LoginControllerImp>(
         builder: (controller)=>
             Obx(() =>TextFormField(
+              keyboardType:isNum ?TextInputType.numberWithOptions(decimal: true):TextInputType.text ,
               validator: validator,
               obscureText: (text=="Password" && !controller.Press.value)?true:false,
               enableSuggestions:(text=="Password" && controller.Press==false)? true:false,

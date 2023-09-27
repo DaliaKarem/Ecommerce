@@ -40,6 +40,8 @@ class Login extends StatelessWidget {
                     text: "Sign in with your Email and Password or Continue with Social Media"),
                 SizedBox(height: 50,),
                 customTextAuth(
+                  isNum: false,
+
                   validator: (val){
                     return ValidatorInput("email",val! , 10, 20);
                   },
@@ -49,6 +51,8 @@ class Login extends StatelessWidget {
                   icon2: Icon(Icons.email_outlined), control: controllerImp.email,),
                 SizedBox(height: 20,),
                 customTextAuth(
+                  isNum: false,
+
                   validator: (val){
                     return ValidatorInput("pass",val! , 8, 15);
                   },
