@@ -1,8 +1,10 @@
+import 'package:ecommerce/Binding/binding.dart';
 import 'package:ecommerce/core/const/appTheme.dart';
 import 'package:ecommerce/core/const/color.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/routes.dart';
 import 'package:ecommerce/view/screen/onBoarding.dart';
+import 'package:ecommerce/view/testView.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,8 +24,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme:themeData,
-      home: onBoarding(),
-      getPages: routes,
+      home: testView(),
+      initialBinding:IntialBinding() ,
+     // getPages: routes,
       // routes: routes
     );
   }

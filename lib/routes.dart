@@ -25,7 +25,7 @@ import 'package:ecommerce/view/screen/onBoarding.dart';
 // };
 
 List<GetPage<dynamic>>?routes=[
-  GetPage(name: "/", page:()=> onBoarding(),middlewares: [middelware()]),
+  //GetPage(name: "/", page:()=> onBoarding(),middlewares: [middelware()]),
 
   GetPage(name: routeApp.Login, page:()=>Login()),
   GetPage(name: routeApp.SignUp, page:()=>SignUp()),
