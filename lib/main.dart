@@ -24,9 +24,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme:themeData,
-      home: testView(),
+      //home: onBoarding(),
       initialBinding:IntialBinding() ,
-     // getPages: routes,
+      getPages: routes,
       // routes: routes
     );
   }

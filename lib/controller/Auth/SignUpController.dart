@@ -1,4 +1,7 @@
+import 'package:ecommerce/core/class/satusReq.dart';
 import 'package:ecommerce/core/const/routesName.dart';
+import 'package:ecommerce/core/functions/handlingData.dart';
+import 'package:ecommerce/data/datasource/remote/auth/signUpData.dart';
 import 'package:ecommerce/view/screen/auth/SignUp.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -14,6 +17,9 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController userName;
   late TextEditingController phone;
   GlobalKey<FormState>formstate=GlobalKey<FormState>();
+  List getdata=[];
+  late statusReq status;
+  signUpData signupdata=signUpData(Get.find());
   showPass()
   {
     Press=Press==true?false:true;
@@ -39,11 +45,27 @@ class SignUpControllerImp extends SignUpController {
 
 
   @override
-  SignUp() {
+  SignUp()async {
     var form=formstate.currentState;
     if(form!.validate()){
-      print("valid Sign");
-      Get.offNamed(routeApp.verifySignCode);
+      status=statusReq.loading;
+      var res=await signupdata.postData(userName.text,email.text,password.text,phone.text);
+      status=handlingData(res);
+      print("=================================$res");
+      if(status==statusReq.success)
+      {
+        if(res['status']=='success')
+        {
+          // getdata.addAll(res['data']);
+          Get.offNamed(routeApp.verifySignCode);
+        }
+        else{
+          Get.defaultDialog(title: "Warning",middleText: "Email or Phone  Exists");
+          status=statusReq.fail;
+        }
+
+      }
+      update();
       //bec when we go to sign up again after verification data saved
       //Get.delete<SignUpControllerImp>();
     }

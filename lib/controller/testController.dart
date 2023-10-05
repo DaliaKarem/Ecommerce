@@ -11,14 +11,21 @@ class testController extends GetxController{
     status=statusReq.loading;
     var res=await test.getData();
     status=handlingData(res);
-    print(res);
+    print("=================================$res");
     if(status==statusReq.success)
       {
-        print("kkkkk");
-        print(res['data']);
-        print("///////////");
-        getdata.addAll(res['data']);
-        print(getdata);
+        if(res['status']=='success')
+          {
+            print("kkkkk");
+            print(res['data']);
+            print("///////////");
+            getdata.addAll(res['data']);
+            print(getdata);
+          }
+        else{
+          status=statusReq.fail;
+        }
+
       }
     update();
   }
