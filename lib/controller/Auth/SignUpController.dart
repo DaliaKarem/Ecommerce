@@ -18,7 +18,7 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController phone;
   GlobalKey<FormState>formstate=GlobalKey<FormState>();
   List getdata=[];
-  late statusReq status;
+   statusReq? status;
   signUpData signupdata=signUpData(Get.find());
   showPass()
   {
@@ -49,6 +49,7 @@ class SignUpControllerImp extends SignUpController {
     var form=formstate.currentState;
     if(form!.validate()){
       status=statusReq.loading;
+      update();
       var res=await signupdata.postData(userName.text,email.text,password.text,phone.text);
       status=handlingData(res);
       print("=================================$res");
@@ -56,8 +57,7 @@ class SignUpControllerImp extends SignUpController {
       {
         if(res['status']=='success')
         {
-          // getdata.addAll(res['data']);
-          Get.offNamed(routeApp.verifySignCode);
+          Get.offNamed(routeApp.verifySignCode,arguments: {"email":email.text});
         }
         else{
           Get.defaultDialog(title: "Warning",middleText: "Email or Phone  Exists");
