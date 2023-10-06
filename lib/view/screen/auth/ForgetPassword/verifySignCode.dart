@@ -58,7 +58,7 @@ class verifySignCode extends StatelessWidget {
                   showFieldAsBox: true,
                   onCodeChanged: (String code) {},
                   onSubmit: (String verificationCode) {
-                    controller.goToSuccess();
+                    controller.goToSuccess(verificationCode);
                   }, // end onSubmit
                 ),
                 // customTextAuth(

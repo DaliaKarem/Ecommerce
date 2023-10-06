@@ -5,6 +5,7 @@ class linkapp{
   //Auth
   static const String SignUp="$linkServer/auth/signup.php";
   static const String VerifyCode="$linkServer/auth/verifyCode.php";
+  static const String login="$linkServer/auth/login.php";
 
 
 }

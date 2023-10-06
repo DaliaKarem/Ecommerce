@@ -9,10 +9,9 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 abstract class verifySignCodeController extends GetxController{
 
   verifySignCodeController();
-  goToSuccess();
+  goToSuccess(String  verifyCode);
 }
 class verifySignCodeControllerImp extends verifySignCodeController {
-   String? verifyCode;
   String? email;
   statusReq? status;
   verifyCodeData verifycodedata=verifyCodeData(Get.find());
@@ -35,21 +34,21 @@ class verifySignCodeControllerImp extends verifySignCodeController {
 
   }
   @override
-  goToSuccess() async{
+  goToSuccess(verifyCode) async{
 
       status=statusReq.loading;
       update();
       var res=await verifycodedata.postData(verifyCode!,email!);
       status=handlingData(res);
       if(status==statusReq.success)
-      {
+      { print("verfy code is :$verifyCode");
         if(res['status']=='success')
         {
           Get.toNamed(routeApp.SuccessSignUp);
 
         }
         else{
-          Get.defaultDialog(title: "Warning",middleText: "Email or Phone  Exists");
+          Get.defaultDialog(title: "Warning",middleText: "Verify Code not correct");
           status=statusReq.fail;
         }
 

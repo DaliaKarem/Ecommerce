@@ -12,4 +12,8 @@ class routeApp{
   static const String SuccessResetPass="/SuccessResetPass";
 
 
+  //Home
+  static const String Home="/Home";
+
+
 }

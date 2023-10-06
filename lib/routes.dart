@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/const/routesName.dart';
 import 'package:ecommerce/core/middelware/middelware.dart';
+import 'package:ecommerce/view/screen/Home.dart';
 import 'package:ecommerce/view/screen/auth/ForgetPassword//ForgetPass.dart';
 import 'package:ecommerce/view/screen/auth/ForgetPassword/verifySignCode.dart';
 import 'package:ecommerce/view/screen/auth/Login.dart';
@@ -36,6 +37,9 @@ List<GetPage<dynamic>>?routes=[
   GetPage(name: routeApp.Verification, page:()=>Verification()),
   GetPage(name: routeApp.SuccessResetPass, page:()=>SuccessResetPass()),
   GetPage(name: routeApp.verifySignCode, page:()=>verifySignCode()),
+
+  GetPage(name: routeApp.Home, page:()=>Home()),
+
 
 
 ];
