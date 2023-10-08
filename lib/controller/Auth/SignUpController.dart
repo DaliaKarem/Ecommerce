@@ -9,6 +9,7 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 abstract class SignUpController extends GetxController{
   SignUp();
   goToLogin();
+  goToForget();
 }
 class SignUpControllerImp extends SignUpController {
   bool Press = true;
@@ -79,5 +80,8 @@ class SignUpControllerImp extends SignUpController {
   goToLogin() {
     Get.toNamed(routeApp.Login);
   }
-
+  @override
+  goToForget() {
+    Get.toNamed(routeApp.ForgetPass);
+  }
 }

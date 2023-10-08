@@ -7,5 +7,10 @@ class linkapp{
   static const String VerifyCode="$linkServer/auth/verifyCode.php";
   static const String login="$linkServer/auth/login.php";
 
+  //ForgetPass
+  static const String checkEmail="$linkServer/forgetPass/checkEmail.php";
+  static const String VerifyCodePass="$linkServer/forgetPass/verifyCodePass.php";
+  static const String resetPass="$linkServer/forgetPass/resetPass.php";
 
+//http://localhost/ecommerce/forgetPass/checkEmail.php
 }

@@ -38,6 +38,8 @@ List<GetPage<dynamic>>?routes=[
   GetPage(name: routeApp.SuccessResetPass, page:()=>SuccessResetPass()),
   GetPage(name: routeApp.verifySignCode, page:()=>verifySignCode()),
 
+
+
   GetPage(name: routeApp.Home, page:()=>Home()),
 
 
