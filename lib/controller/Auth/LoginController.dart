@@ -1,6 +1,7 @@
 import 'package:ecommerce/core/class/satusReq.dart';
 import 'package:ecommerce/core/const/routesName.dart';
 import 'package:ecommerce/core/functions/handlingData.dart';
+import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/auth/loginData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -17,6 +18,7 @@ class LoginControllerImp extends LoginController{
   GlobalKey<FormState>formstate=GlobalKey<FormState>();
   statusReq? status;
   loginData logindata=loginData(Get.find());
+  myServices myserveices=Get.find();
   showPass()
   {
     Press=Press==true?false:true;
@@ -24,7 +26,6 @@ class LoginControllerImp extends LoginController{
   }
   @override
   void onInit() {
-    // TODO: implement onInit
     email=TextEditingController();
     password=TextEditingController();
   }
@@ -48,6 +49,12 @@ class LoginControllerImp extends LoginController{
       {
         if(res['status']=='success')
         {
+          myserveices.sharedPreferences.setString("id",res['data']['user_id'] );
+          myserveices.sharedPreferences.setString("email",res['data']['user_email'] );
+          myserveices.sharedPreferences.setString("name", res['data']['user_name']);
+          myserveices.sharedPreferences.setString("phone", res['data']['user_phone']);
+          myserveices.sharedPreferences.setString("onboarding", "2");
+
           Get.offNamed(routeApp.Home);
         }
         else{

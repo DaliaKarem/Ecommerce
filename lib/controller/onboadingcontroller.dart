@@ -34,7 +34,7 @@ class onBoardingControllerImp extends onBoardingController{
       {
         print("go to sign up page");
         //current=0;
-        myservices.sharedPreferences.setString("onboarding", "True");
+        myservices.sharedPreferences.setString("onboarding", "1");
         Get.offAllNamed(routeApp.Login);
       }
     else{

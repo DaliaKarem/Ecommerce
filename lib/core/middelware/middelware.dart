@@ -10,9 +10,14 @@ class middelware extends GetMiddleware{
   myServices myservices=Get.find();
   @override
   RouteSettings? redirect(String? route){
-    if(myservices.sharedPreferences.getString("onboarding")=="True")
+    if(myservices.sharedPreferences.getString("onboarding")=="2")
+    {
+      return RouteSettings(name: routeApp.Home);
+    }
+    if(myservices.sharedPreferences.getString("onboarding")=="1")
       {
         return RouteSettings(name: routeApp.Login);
       }
+
   }
 }
