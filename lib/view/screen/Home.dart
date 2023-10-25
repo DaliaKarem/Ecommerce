@@ -17,15 +17,23 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(homePageControllerImp());
-    return Scaffold(body: GetBuilder<homePageControllerImp>(
+    return  GetBuilder<homePageControllerImp>(
       builder: (controller) {
         return controller.status == statusReq.loading
             ? Lottie.asset("assets/lottie/Loading.json")
             : Container(
+          margin: EdgeInsets.symmetric(horizontal: 12),
                 child: ListView(
                 children: [
                   customAppBar(onPressed:() {},onPressedNoti: (){},),
                   OfferCard(),
+                  Text(
+                    "Categories",
+                    style: TextStyle(fontSize: 20, color: colorApp.primary),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   ListCategoriesHome(),
                   Text(
                     "Offers",
@@ -35,10 +43,10 @@ class Home extends StatelessWidget {
                     height: 10,
                   ),
                   ListItemsHome(),
-                  
+
                 ],
               ));
       },
-    ));
+    );
   }
 }

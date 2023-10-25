@@ -6,7 +6,7 @@ class OfferCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.only(bottom: 10,top: 15),
       child: Stack(
         children: [
           Container(
