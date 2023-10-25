@@ -22,6 +22,7 @@ String ? name,id;
   homeData homedata=homeData(Get.find());
   List data=[];
   List cate=[];
+List items=[];
 
 @override
   getData()async{
@@ -33,6 +34,8 @@ String ? name,id;
       if(res['status']=='success')
       {
         cate.addAll(res['categories']);
+        items.addAll(res['items']);
+
       }
       else{
         status=statusReq.fail;
