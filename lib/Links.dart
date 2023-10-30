@@ -1,7 +1,6 @@
 class linkapp{
   static const String linkServer="http://10.0.2.2/ecommerce";
   static const String test="$linkServer/test.php";
-  static const String home="$linkServer/home.php";
 
   //Auth
   static const String SignUp="$linkServer/auth/signup.php";
@@ -13,5 +12,8 @@ class linkapp{
   static const String VerifyCodePass="$linkServer/forgetPass/verifyCodePass.php";
   static const String resetPass="$linkServer/forgetPass/resetPass.php";
 
+  //Home
+  static const String home="$linkServer/home.php";
+  static const String items="$linkServer/Items/items.php";
 //http://localhost/ecommerce/forgetPass/checkEmail.php
 }
