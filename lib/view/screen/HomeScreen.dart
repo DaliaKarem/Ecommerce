@@ -26,35 +26,35 @@ class HomeScreen extends StatelessWidget {
                     BottomNavigationBarItem(
                       icon: Icon(
                         Icons.home,
-                        color: (controller.currentage == 0) ? colorApp.primary : Colors.black,
+                        color: (controller.currentage == 0) ? colorApp.primary : Colors.grey,
                       ),
                       label: 'Home', // Label for the first item
                     ),
                     BottomNavigationBarItem(
                       icon: Icon(
                         Icons.favorite,
-                        color: (controller.currentage == 1) ? colorApp.primary : Colors.black,
+                        color: (controller.currentage == 1) ? colorApp.primary : Colors.grey,
                       ),
                       label: 'Favorites', // Label for the first item
                     ),
                     BottomNavigationBarItem(
                       icon: Icon(
                         Icons.add_shopping_cart,
-                        color: (controller.currentage == 2) ? colorApp.primary : Colors.black,
+                        color: (controller.currentage == 2) ? colorApp.primary : Colors.grey,
                       ),
                       label: 'Cart', // Label for the second item
                     ),
                     BottomNavigationBarItem(
                       icon: Icon(
                         Icons.settings,
-                        color: (controller.currentage == 3) ? colorApp.primary : Colors.black,
+                        color: (controller.currentage == 3) ? colorApp.primary : Colors.grey,
                       ),
                       label: 'Settings', // Label for the third item
                     ),
                     BottomNavigationBarItem(
                       icon: Icon(
                         Icons.account_circle,
-                        color: (controller.currentage == 4) ? colorApp.primary : Colors.black,
+                        color: (controller.currentage == 4) ? colorApp.primary : Colors.grey,
                       ),
                       label: 'Account', // Label for the fourth item
                     ),

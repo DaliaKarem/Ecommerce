@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/class/satusReq.dart';
+import 'package:ecommerce/core/const/routesName.dart';
 import 'package:ecommerce/core/functions/handlingData.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/home_data.dart';
@@ -8,6 +9,7 @@ import 'package:get/get.dart';
 abstract class homePageController extends GetxController{
  initialData();
  getData();
+ gotoitems(List cat,int sel );
 }
 class homePageControllerImp extends homePageController{
 myServices mysevices=Get.find();
@@ -49,5 +51,14 @@ List items=[];
     initialData();
     getData();
     super.onInit();
+  }
+
+  @override
+  gotoitems(Categories,Selected) {
+    Get.toNamed(routeApp.Items,arguments: {
+      "categoies":Categories,
+      "Selected":Selected,
+    });
+
   }
 }

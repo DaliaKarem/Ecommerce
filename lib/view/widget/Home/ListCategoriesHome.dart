@@ -18,39 +18,46 @@ class ListCategoriesHome extends GetView<homePageControllerImp> {
           itemBuilder: (conntext, index) {
             // String imagePath =
             //     "D:\\Xampp\\htdocs\\Ecommerce\\Images\\${controller.cate[index]['categry_img']}";
-            return Cateories(categoriesModel: CategoriesModel.fromJson(controller.cate[index]),);
+            return Cateories(index:index,categoriesModel: CategoriesModel.fromJson(controller.cate[index]),);
           }),
     );
   }
 }
-class Cateories extends StatelessWidget {
-   Cateories({Key? key, required this.categoriesModel}) : super(key: key);
+class Cateories extends GetView<homePageControllerImp> {
+   Cateories({Key? key, required this.index,required this.categoriesModel}) : super(key: key);
  final CategoriesModel categoriesModel;
+ final int index;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        //   Container(
-        //   padding: EdgeInsets.symmetric(horizontal: 10),
-        //   height: 50,
-        //   width: 50,
-        //   //"{D:\\Xampp\\htdocs\\Ecommerce\\Images}/${controller.cate[index]['categry_img']}"
-        //   child: Image.file(File(imagePath)),
-        // );
-        Container(
-          padding: EdgeInsets.symmetric(
-              horizontal: 10, vertical: 10),
-          child: Text(
-            "${categoriesModel.categryName}"
-             // "${controller.cate[index]['categry_name']}"
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: Colors.indigo.shade100,
-            //border: Border.all()
-          ),
-        )
-      ],
+    return InkWell(
+      onTap: (){
+        controller.gotoitems(controller.cate,index);
+        print("index is ${index}");
+      },
+      child: Column(
+        children: [
+          //   Container(
+          //   padding: EdgeInsets.symmetric(horizontal: 10),
+          //   height: 50,
+          //   width: 50,
+          //   //"{D:\\Xampp\\htdocs\\Ecommerce\\Images}/${controller.cate[index]['categry_img']}"
+          //   child: Image.file(File(imagePath)),
+          // );
+          Container(
+            padding: EdgeInsets.symmetric(
+                horizontal: 10, vertical: 10),
+            child: Text(
+              "${categoriesModel.categryName}"
+               // "${controller.cate[index]['categry_name']}"
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: Colors.indigo.shade100,
+              //border: Border.all()
+            ),
+          )
+        ],
+      ),
     );
   }
 }

@@ -8,7 +8,7 @@ class ListItemsHome extends GetView<homePageControllerImp> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
+      height: 200,
       child: ListView.builder(
           itemCount: controller.items.length,
           scrollDirection: Axis.horizontal,
@@ -28,17 +28,17 @@ class Products extends StatelessWidget {
       children: [
         Container(
           padding: EdgeInsets.symmetric(
-              horizontal: 10, vertical: 10),
+              horizontal: 10, vertical: 20),
           margin: EdgeInsets.symmetric(horizontal: 10),
           child: Image.network(
-            "https://banner2.cleanpng.com/20180202/wvw/kisspng-jeans-denim-waist-pocket-mens-pant-png-file-5a75223cada413.5653373415176259167112.jpg",
+            "https://img.fruugo.com/product/9/89/535273899_max.jpg",
             height: 100,
             width: 150,
             fit: BoxFit.fill,
           ),
         ),
         Container(
-          height: 120,
+          height: 130,
           width: 180,
           decoration: BoxDecoration(
               color: Colors.indigo.withOpacity(0.3),

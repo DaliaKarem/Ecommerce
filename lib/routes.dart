@@ -10,6 +10,7 @@ import 'package:ecommerce/view/screen/auth/ForgetPassword//SuccessResetPass.dart
 import 'package:ecommerce/view/screen/auth/SuccessSignUp.dart';
 import 'package:ecommerce/view/screen/auth/ForgetPassword//Verification.dart';
 import 'package:ecommerce/view/screen/auth/ForgetPassword//resetPass.dart';
+import 'package:ecommerce/view/screen/items.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:ecommerce/view/screen/onBoarding.dart';
 
@@ -42,7 +43,7 @@ List<GetPage<dynamic>>?routes=[
 
 
   GetPage(name: routeApp.Home, page:()=>HomeScreen()),
-
+  GetPage(name: routeApp.Items, page:()=>Items()),
 
 
 ];
