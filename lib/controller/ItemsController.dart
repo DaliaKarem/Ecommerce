@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 abstract class ItemsConroller extends GetxController{
 initalData();
-gotoCate(int);
-getItems();
+gotoCate(int,Sring);
+getItems(String);
 }
 class ItemsControllerImp extends ItemsConroller{
   List Cate=[];
   int? selected;
+  String?itemID;
   statusReq ?status;
   itemsData itemData=itemsData(Get.find());
   List items=[];
@@ -18,7 +19,8 @@ class ItemsControllerImp extends ItemsConroller{
   initalData() {
   Cate=Get.arguments['categoies'];
   selected=Get.arguments['Selected'];
-  getItems();
+  itemID=Get.arguments['itemID'];
+  getItems(itemID);
 
   }
 @override
@@ -28,9 +30,10 @@ class ItemsControllerImp extends ItemsConroller{
   }
 
   @override
-  getItems()async{
+  getItems(itemID)async{
+    items.clear();
     status=statusReq.loading;
-    var res=await itemData.getData();
+    var res=await itemData.getData(itemID);
     status=handlingData(res);
     if(status==statusReq.success)
     {
@@ -47,8 +50,9 @@ class ItemsControllerImp extends ItemsConroller{
     update();
   }
   @override
-  gotoCate(val) {
+  gotoCate(val,Id) {
     selected=val;
+    getItems(Id);
     update();
   }
 }

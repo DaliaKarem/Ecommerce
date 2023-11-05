@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 abstract class homePageController extends GetxController{
  initialData();
  getData();
- gotoitems(List cat,int sel );
+ gotoitems(List cat,int sel,String );
 }
 class homePageControllerImp extends homePageController{
 myServices mysevices=Get.find();
@@ -54,10 +54,11 @@ List items=[];
   }
 
   @override
-  gotoitems(Categories,Selected) {
+  gotoitems(Categories,Selected,itemID) {
     Get.toNamed(routeApp.Items,arguments: {
       "categoies":Categories,
       "Selected":Selected,
+      "itemID":itemID
     });
 
   }

@@ -31,7 +31,7 @@ class Cateories extends GetView<homePageControllerImp> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        controller.gotoitems(controller.cate,index);
+        controller.gotoitems(controller.cate,index,categoriesModel.categryId);
         print("index is ${index}");
       },
       child: Column(

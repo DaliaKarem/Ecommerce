@@ -4,8 +4,8 @@ import 'package:ecommerce/core/class/crud.dart';
 class itemsData{
   crud _crud;
   itemsData(this._crud);
-  getData()async{
-    var res=await _crud.postData(linkapp.items, {});
+  getData(String id)async{
+    var res=await _crud.postData(linkapp.items, {"id":id});
     return res.fold((l) => l, (r) => r);
   }
 }
