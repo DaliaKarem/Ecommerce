@@ -35,7 +35,8 @@ class Items extends GetView<ItemsControllerImp> {
     return Container(
       child: InkWell(
         onTap: () {
-          print("Clicked");
+          print("Clcked");
+          controller.gotoProductDetails(items);
         },
         child: Card(
           child: Column(
@@ -130,7 +131,7 @@ class Items extends GetView<ItemsControllerImp> {
                           ),
                         ),
                         Text(
-                          "\$${items.itemDiscount}",
+                          "\$${controller.calcDis(items.itemPrice!, items.itemDiscount!)}",
                         ),
                       ],
                     ),

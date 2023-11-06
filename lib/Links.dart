@@ -15,5 +15,8 @@ class linkapp{
   //Home
   static const String home="$linkServer/home.php";
   static const String items="$linkServer/Items/items.php";
+  //ProductDetails
+static const String ProductDetails="$linkServer/ProductDetails.php";
+
 //http://localhost/ecommerce/forgetPass/checkEmail.php
 }
