@@ -20,6 +20,7 @@ class customListItems extends GetView<ItemsControllerImp> {
             // Item builder function
             return Items(
               items: itemModel.fromJson(controller.items[index]),
+              fav:true
             );
           });
     });
@@ -27,9 +28,9 @@ class customListItems extends GetView<ItemsControllerImp> {
 }
 
 class Items extends GetView<ItemsControllerImp> {
-  Items({Key? key, required this.items}) : super(key: key);
+  Items({Key? key, required this.items,required this.fav}) : super(key: key);
   final itemModel items;
-
+  final bool fav;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -56,7 +57,7 @@ class Items extends GetView<ItemsControllerImp> {
                     top: -5,
                     right: 2,
                     child: IconButton(
-                      icon: Icon(Icons.favorite, color: Colors.red),
+                      icon: Icon((fav==true)?Icons.favorite:Icons.favorite_outline, color: Colors.red),
                       onPressed: () {},
                     ),
                   ),

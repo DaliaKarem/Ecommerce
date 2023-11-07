@@ -19,6 +19,8 @@ class ItemsControllerImp extends ItemsConroller{
   statusReq ?status;
   itemsData itemData=itemsData(Get.find());
   List items=[];
+  String? result;
+
   @override
   initalData() {
   Cate=Get.arguments['categoies'];
@@ -63,12 +65,12 @@ class ItemsControllerImp extends ItemsConroller{
   @override
   gotoProductDetails( itemsmodel) {
     Get.toNamed(routeApp.ProductDetails,arguments: {
-      'itemModel': itemsmodel
+      'itemModel': itemsmodel,
+      'price_dis':result,
     });
   }
-
   @override
-  String calcDis(String price, String dis) {
+  String? calcDis(String price, String dis) {
     double priceValue = double.parse(price);
     double disValue = double.parse(dis);
 
@@ -76,7 +78,7 @@ class ItemsControllerImp extends ItemsConroller{
     double discountedPrice = priceValue - discAmount;
 
     // Convert the discounted price back to a string if needed
-    String result = discountedPrice.toStringAsFixed(2);
+    result= discountedPrice.toStringAsFixed(2);
 
     return result;
   }
