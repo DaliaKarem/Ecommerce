@@ -18,4 +18,7 @@ class routeApp{
   //ProductDetails
   static const String ProductDetails="/ProductDetails";
 
+  //fav
+  static const String Fav="/Fav";
+
 }

@@ -1,7 +1,10 @@
+import 'package:ecommerce/controller/FavController.dart';
 import 'package:ecommerce/controller/ItemsController.dart';
 import 'package:ecommerce/core/const/color.dart';
 import 'package:ecommerce/data/model/items.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class customListItems extends GetView<ItemsControllerImp> {
@@ -9,6 +12,7 @@ class customListItems extends GetView<ItemsControllerImp> {
 
   @override
   Widget build(BuildContext context) {
+    FavControllerImp favControllerImp=Get.put(FavControllerImp());
     return GetBuilder<ItemsControllerImp>(builder: (controller) {
       return GridView.builder(
           shrinkWrap: true,
@@ -17,10 +21,10 @@ class customListItems extends GetView<ItemsControllerImp> {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               childAspectRatio: 0.6, crossAxisCount: 2),
           itemBuilder: (context, index) {
+            favControllerImp.isFav[controller.items[index]['item_id']]=controller.items[index]['favorites'];
             // Item builder function
             return Items(
               items: itemModel.fromJson(controller.items[index]),
-              fav:true
             );
           });
     });
@@ -28,9 +32,8 @@ class customListItems extends GetView<ItemsControllerImp> {
 }
 
 class Items extends GetView<ItemsControllerImp> {
-  Items({Key? key, required this.items,required this.fav}) : super(key: key);
+  Items({Key? key, required this.items}) : super(key: key);
   final itemModel items;
-  final bool fav;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -53,14 +56,25 @@ class Items extends GetView<ItemsControllerImp> {
                       fit: BoxFit.fill,
                     ),
                   ),
-                  Positioned(
-                    top: -5,
-                    right: 2,
-                    child: IconButton(
-                      icon: Icon((fav==true)?Icons.favorite:Icons.favorite_outline, color: Colors.red),
-                      onPressed: () {},
-                    ),
-                  ),
+               GetBuilder<FavControllerImp>
+                 (builder: (context)=>   Positioned(
+                 top: -5,
+                 right: 2,
+                 child: IconButton(
+                   icon: Icon((context.isFav[items.itemId]=="1")?Icons.favorite:Icons.favorite_outline, color: Colors.red),
+                   onPressed: () {
+                     if(context.isFav[items.itemId]=="1")
+                       {
+                         context.setFav(items.itemId,"0");
+                       }
+                     else{
+                       context.setFav(items.itemId,"1");
+
+                     }
+                     //controller.addToFav(items.itemId);
+                   },
+                 ),
+               ),),
                   (items.itemDiscount != "0")?Positioned(
                       top: -5,
                       left: 2,

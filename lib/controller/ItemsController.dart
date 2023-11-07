@@ -1,6 +1,7 @@
 import 'package:ecommerce/core/class/satusReq.dart';
 import 'package:ecommerce/core/const/routesName.dart';
 import 'package:ecommerce/core/functions/handlingData.dart';
+import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/items_data.dart';
 import 'package:ecommerce/data/model/items.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ gotoCate(int,Sring);
 getItems(String);
 gotoProductDetails(itemModel);
 calcDis(String price,String dis);
+//addToFav(String);
 }
 class ItemsControllerImp extends ItemsConroller{
   List Cate=[];
@@ -20,7 +22,7 @@ class ItemsControllerImp extends ItemsConroller{
   itemsData itemData=itemsData(Get.find());
   List items=[];
   String? result;
-
+  myServices myservices=Get.find();
   @override
   initalData() {
   Cate=Get.arguments['categoies'];
@@ -39,7 +41,7 @@ class ItemsControllerImp extends ItemsConroller{
   getItems(itemID)async{
     items.clear();
     status=statusReq.loading;
-    var res=await itemData.getData(itemID);
+    var res=await itemData.getData(myservices.sharedPreferences.getString("id")!,itemID);
     status=handlingData(res);
     if(status==statusReq.success)
     {
@@ -82,5 +84,20 @@ class ItemsControllerImp extends ItemsConroller{
 
     return result;
   }
+  //
+  // @override
+  // addToFav(itemID) async{
+  //   var res=await itemData.getData(myservices.sharedPreferences.getString("id")!,itemID);
+  //   //res['data']['favorites']= res['data']['favorites']=="1"?"0":"1";
+  //   if(res['data']['favorites']=="1")
+  //     {
+  //       res['data']['favorites']="0";
+  //     }
+  //   else{
+  //     res['data']['favorites']="1";
+  //   }
+  //   update();
+  //
+  // }
 
 }

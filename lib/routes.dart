@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/const/routesName.dart';
 import 'package:ecommerce/core/middelware/middelware.dart';
+import 'package:ecommerce/view/screen/Fav.dart';
 import 'package:ecommerce/view/screen/Home.dart';
 import 'package:ecommerce/view/screen/HomeScreen.dart';
 import 'package:ecommerce/view/screen/ProductDetails.dart';
@@ -46,6 +47,10 @@ List<GetPage<dynamic>>?routes=[
   GetPage(name: routeApp.Home, page:()=>HomeScreen()),
   GetPage(name: routeApp.Items, page:()=>Items()),
   GetPage(name: routeApp.ProductDetails, page:()=>ProductDetails()),
+
+  //Fav
+  GetPage(name: routeApp.Fav, page:()=>Fav()),
+
 
 
 ];
