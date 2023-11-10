@@ -19,8 +19,9 @@ class linkapp{
 static const String ProductDetails="$linkServer/ProductDetails.php";
 
 //Fav
-  static const String Fav="$linkServer/Fav_Cart/fav.php";
-
+  static const String Fav="$linkServer/Fav/fav.php";
+  static const String add_Fav="$linkServer/Fav/add_fav.php";
+  static const String remove_Fav="$linkServer/Fav/remove_fav.php";
 
 //http://localhost/ecommerce/forgetPass/checkEmail.php
 }

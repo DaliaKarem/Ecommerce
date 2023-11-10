@@ -66,10 +66,11 @@ class Items extends GetView<ItemsControllerImp> {
                      if(context.isFav[items.itemId]=="1")
                        {
                          context.setFav(items.itemId,"0");
+                         context.removeFromFav(items.itemId);
                        }
                      else{
                        context.setFav(items.itemId,"1");
-
+                       context.addtoFav(items.itemId);
                      }
                      //controller.addToFav(items.itemId);
                    },
