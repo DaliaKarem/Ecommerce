@@ -7,6 +7,7 @@ import 'package:ecommerce/data/datasource/remote/Fav/removeFrom_FavPage_Data.dar
 import 'package:ecommerce/data/datasource/remote/Fav/remove_fav_Data.dart';
 import 'package:ecommerce/data/model/Fav.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 abstract class FavController extends GetxController {
   addtoFav(String);
@@ -39,6 +40,7 @@ String ?id;
   @override
   void onInit() {
     //initialData();
+    update();
     getData();
     super.onInit();
   }
@@ -62,6 +64,7 @@ String ?id;
       }
 
     }
+
     update();
   }
   @override
@@ -103,12 +106,15 @@ String ?id;
   removeFrompage(itemid) {
     status = statusReq.loading;
 
-    var res =  removefrompage.DeleteFav(myservices.sharedPreferences.getString("id")!,itemid);
+    var res = removefrompage.DeleteFav(
+        myservices.sharedPreferences.getString("id")!, itemid);
     status = handlingData(res);
 
-        fav.removeWhere((element) => element.favoritesId==itemid);
-        Get.rawSnackbar(title: "Done",message: "Remove From Fav");
-     
-    update();
+        fav.removeWhere((element) => element.itemId == itemid);
+        Get.rawSnackbar(title: "Done", message: "Remove From Fav");
+
+
+      update();
+    }
   }
-}
+

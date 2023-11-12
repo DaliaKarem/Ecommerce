@@ -24,5 +24,10 @@ static const String ProductDetails="$linkServer/ProductDetails.php";
   static const String remove_Fav="$linkServer/Fav/remove_fav.php";
   static const String remove_From_FavPage="$linkServer/Fav/removeFromFav.php";
 
+  //Cart
+  static const String Cart="$linkServer/Cart/cart.php";
+  static const String add_Cart="$linkServer/Cart/add_cart.php";
+  static const String remove_Cart="$linkServer/Cart/remove_cart.php";
+  static const String remove_From_CartPage="$linkServer/Cart/removeFromcart.php";
 //http://localhost/ecommerce/forgetPass/checkEmail.php
 }

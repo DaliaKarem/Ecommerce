@@ -20,5 +20,7 @@ class routeApp{
 
   //fav
   static const String Fav="/Fav";
+  //cart
+  static const String Cart="/Cart";
 
 }

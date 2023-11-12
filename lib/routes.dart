@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/const/routesName.dart';
 import 'package:ecommerce/core/middelware/middelware.dart';
+import 'package:ecommerce/view/screen/Cart.dart';
 import 'package:ecommerce/view/screen/Fav.dart';
 import 'package:ecommerce/view/screen/Home.dart';
 import 'package:ecommerce/view/screen/HomeScreen.dart';
@@ -50,7 +51,8 @@ List<GetPage<dynamic>>?routes=[
 
   //Fav
   GetPage(name: routeApp.Fav, page:()=>Fav()),
-
+  //Cart
+  GetPage(name: routeApp.Cart, page:()=>Cart()),
 
 
 ];
