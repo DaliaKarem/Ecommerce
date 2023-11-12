@@ -12,6 +12,7 @@ class crud {
         print("check  ${url}");
         var res = await http.post(Uri.parse(url), body: data);
         print("check11");
+        print("data is  ${data}");
         print(res.statusCode);
         if (res.statusCode == 200 || res.statusCode == 201) {
           Map resBody = jsonDecode(res.body);
